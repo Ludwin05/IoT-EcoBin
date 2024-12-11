@@ -1,0 +1,941 @@
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+}
+
+/* Header Styling */
+/* Header Styling */
+header {
+    background-color: #2d7e00;
+    padding: 20px;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Logo Styling */
+.navbar .logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    margin-right: 10px;
+    height: 20px;
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Navbar Links Styling */
+.navbar .links {
+    list-style: none; /* Remove bullets */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .links li {
+    display: inline-block; /* Ensure items are inline */
+}
+
+.navbar .links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Toggle Button for Mobile */
+.toggle_btn {
+    display: none; /* Hide by default */
+    cursor: pointer;
+}
+
+/* Media query to show the toggle button on small screens */
+@media (max-width: 768px) {
+    .toggle_btn {
+        display: block; /* Show toggle button on mobile */
+    }
+
+    .navbar .links {
+        display: none; /* Hide navbar links by default */
+        flex-direction: column; /* Stack links vertically on mobile */
+        gap: 10px; /* Optional: Add gap between links */
+        padding-top: 10px; /* Optional: Space between top and first link */
+    }
+
+    .navbar.active .links {
+        display: flex; /* Show navbar links when .navbar has "active" class */
+    }
+
+    .dropdown_menu {
+        display: none; /* Hide dropdown by default */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: #2d7e00; /* Same as header for consistency */
+        position: absolute;
+        top: 100%; /* Position the dropdown below the parent */
+        left: 0;
+        min-width: 150px;
+    }
+
+    .dropdown.active .dropdown_menu {
+        display: block; /* Show dropdown when parent is active */
+    }
+
+    .dropdown_menu li {
+        padding: 10px;
+    }
+
+    .dropdown_menu a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown_menu a:hover {
+        background-color: #4CAF50; /* Hover effect */
+    }
+}
+
+/* Dropdown menu (hover) for larger screens */
+.navbar .dropdown:hover .dropdown_menu {
+    display: block; /* Show dropdown on hover */
+}
+
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 5%;
+    color: rgb(13, 85, 16);
+    border-bottom: 5px solid #2d7e00;
+    position: relative;
+    min-height: 500px;
+    background-color: #f9f9f9;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 10%; /* Adjust padding to control spacing */
+    background-color: #f4f4f4; /* Optional: background color */
+    min-height: 450px; /* Minimum height of the hero section */
+}
+
+/* Text Styling */
+.hero .text {
+    flex: 1; /* Take up remaining space */
+    padding-right: 20px; /* Space between text and image */
+}
+
+/* Image Styling */
+.hero .image {
+    flex: 1; /* Take up remaining space */
+    text-align: right; /* Align image to the right */
+}
+
+.hero .image img {
+    width: 75%; /* Makes the image responsive */
+    max-width: 400px; /* Set a max width to ensure image doesn't get too large */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Stack the text and image vertically on smaller screens */
+        text-align: center; /* Center text */
+        padding: 30px 10%; /* Adjust padding for mobile */
+    }
+
+    .hero .image img {
+        max-width: 100%; /* Allow image to take up full width on smaller screens */
+    }
+}
+
+
+
+/* Text Content */
+.hero .text {
+    flex: 1;
+    text-align: left;
+    margin-right: 30px;
+    max-width: 60%; /* Limit width for better readability */
+    z-index: 2; /* Ensure text is above background */
+}
+
+.hero .text h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    color: #0b451b; /* White color for readability */
+}
+
+.hero .text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #063a12; /* Light gray for paragraph text */
+}
+
+/* Image Content */
+.hero .image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero .image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero .image img:hover {
+    transform: scale(1.05); /* Image hover effect */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding: 60px 5%;
+        text-align: center;
+        background-position: top; /* Adjust background positioning for small screens */
+    }
+
+    .hero .text {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px; /* Add space below text on small screens */
+    }
+
+    .hero .text h2 {
+        font-size: 28px;
+    }
+
+    .hero .primary-btn {
+        font-size: 16px;
+    }
+
+    .hero .image img {
+        width: 80%; /* Adjust image size on smaller screens */
+        margin-top: 20px; /* Add some spacing */
+    }
+}
+
+
+/* Features Section */
+.features-section {
+    padding: 60px 10%;
+    background-color: #ffffff;
+}
+
+.features-section .section-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #333;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.feature.card {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature.card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.feature.card p {
+    font-size: 16px;
+}
+
+/* Materials Section */
+.materials-section {
+    padding: 60px 10%;
+    background-color: #f4f7fc;
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.materials.card {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.materials.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.materials.card h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.materials.card p {
+    font-size: 16px;
+}
+
+/* Circuit Section */
+.circuit-section {
+    padding: 60px 10%;
+    background-color: #ffffff;
+}
+
+.circuit-item {
+    display: flex;
+    justify-content: space-between; /* Ensure space between text and image */
+    align-items: center; /* Vertically align the items */
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.circuit-item.reverse {
+    flex-direction: row-reverse; /* Reverse the order for some items */
+}
+
+.circuit-image img {
+    width: 100%; /* Ensure images are responsive */
+    max-width: 500px; /* Limit the max size */
+    border-radius: 10px;
+    object-fit: contain; /* Ensure the image maintains aspect ratio */
+}
+
+.circuit-text {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5; /* Improve readability */
+}
+
+@media (max-width: 768px) {
+    .circuit-item {
+        flex-direction: column; /* Stack text and image vertically on smaller screens */
+        text-align: center; /* Center-align text for small screens */
+    }
+
+    .circuit-image img {
+        width: 80%; /* Adjust image width on smaller screens */
+        margin-bottom: 20px; /* Add margin between text and image */
+    }
+
+    .circuit-text {
+        margin-left: 0; /* Remove margin when stacking vertically */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 60px 10%;
+    background-color: #f4f7fc;
+}
+
+.how-it-works-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Ensure content wraps on small screens */
+}
+
+.how-it-works-content img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain; /* Maintain image aspect ratio */
+    max-width: 500px; /* Prevent image from becoming too large */
+    margin-right: 20px; /* Space between text and image */
+}
+
+.how-it-works-content .text {
+    flex: 1;
+    font-size: 18px;
+    color: #333;
+    animation: slideIn 1s ease-out;
+    max-width: 550px; /* Limit the width of the text block */
+}
+
+.how-it-works-content .text h2 {
+    font-size: 24px; /* Larger title */
+    margin-bottom: 20px;
+}
+
+.how-it-works-content .text p {
+    font-size: 16px;
+    line-height: 1.6; /* Improve readability */
+    margin-bottom: 20px;
+}
+
+/* For smaller screens (tablets and mobile) */
+@media (max-width: 768px) {
+    .how-it-works-content {
+        flex-direction: column;
+        text-align: center; /* Center-align text and image */
+    }
+
+    .how-it-works-content img {
+        width: 80%; /* Adjust image width on smaller screens */
+        margin-right: 0; /* Remove space between image and text */
+        margin-bottom: 20px; /* Space below image */
+    }
+
+    .how-it-works-content .text {
+        max-width: none; /* Allow text block to use full width */
+    }
+
+    .how-it-works-content .text h2 {
+        font-size: 22px;
+    }
+
+    .how-it-works-content .text p {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+}
+
+
+/* Applications Section */
+.applications {
+    padding: 60px 10%;
+    background-color: #ffffff;
+}
+
+/* Grid Layout for Applications List */
+.applications-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust column size */
+    gap: 20px;
+    justify-items: center;  /* Center items horizontally */
+    align-items: start;     /* Align items to the top */
+}
+
+/* Individual Application Item */
+.application-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Ensure items take up full available width in grid */
+    max-width: 320px; /* Optional: Set a max-width for consistency */
+}
+
+/* Hover Effect for Application Items */
+.application-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Title Styling */
+.application-item h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333; /* Title color */
+    text-align: center; /* Center title text */
+}
+
+/* Paragraph Styling */
+.application-item p {
+    font-size: 16px;
+    color: #555; /* Paragraph color */
+    text-align: center; /* Center-align text */
+    line-height: 1.5;  /* Improve readability */
+    margin: 0; /* Remove any default margins */
+    padding: 0 20px;  /* Add some padding to ensure it doesn't touch the sides */
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Applications Section */
+.applications {
+    padding: 80px 10%; /* Increase padding for a more spacious feel */
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.applications-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Increased gap between items */
+    justify-items: center; /* Align items centrally */
+}
+
+.application-item {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* More subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 350px; /* Limit max width for consistency */
+    text-align: center; /* Ensure both title and paragraph are centered */
+}
+
+.application-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Slightly stronger hover effect */
+}
+
+.application-item h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2d7e00; /* Accent color for title */
+    margin-bottom: 20px; /* Spacing below title */
+}
+
+.application-item p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7; /* Improved line spacing for readability */
+    margin-bottom: 20px; /* Bottom spacing */
+}
+
+.application-item .cta-btn {
+    padding: 12px 25px;
+    background-color: #2d7e00; /* Accent color for buttons */
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.application-item .cta-btn:hover {
+    background-color: #3c9e00; /* Slightly darker shade on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .applications {
+        padding: 60px 5%; /* Less padding on smaller screens */
+    }
+
+    .applications-list {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+        gap: 20px;
+    }
+}
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* How It Works Section */
+#how-it-works {
+    display: flex; /* Enable flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Occupy full viewport height */
+    padding: 20px; /* Add spacing */
+    background-color: #f9f9f9; /* Light background */
+    text-align: center; /* Center text */
+    box-sizing: border-box; /* Include padding in dimensions */
+}
+
+/* Container Styling */
+.how-it-works .container {
+    max-width: 800px; /* Restrict content width */
+    width: 100%;
+}
+
+/* Section Title Styling */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px; /* Space below title */
+    color: #333; /* Dark gray for readability */
+}
+
+/* Content Layout */
+.how-it-works-content {
+    display: flex;
+    flex-direction: column; /* Stack video and text vertically */
+    gap: 20px; /* Space between video and description */
+    align-items: center; /* Center-align content */
+    justify-content: center; /* Vertical centering */
+}
+
+/* Video Styling */
+.video-wrapper {
+    width: 100%;
+    max-width: 700px; /* Limit video width */
+}
+
+.video-wrapper iframe {
+    width: 170%;
+    height: 700px; /* Aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ddd; /* Optional border */
+}
+
+/* Description Styling */
+.how-it-works-description {
+    max-width: 700px; /* Limit description width */
+    width: 100%;
+    padding: 0 20px; /* Add padding for spacing */
+}
+
+.how-it-works-description p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555; /* Medium gray */
+    margin: 0;
+    text-align: left; /* Center-align text */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #how-it-works {
+        padding: 40px 10px; /* Adjust padding for smaller screens */
+    }
+
+    .video-wrapper iframe {
+        height: 300px; /* Adjust video height for smaller screens */
+    }
+
+    .how-it-works-description p {
+        font-size: 1rem; /* Slightly smaller text */
+    }
+}
+
+footer {
+    background-color: #2d7e00;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+/* General styling for images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Enlarge effect when clicked */
+.clickable-feature.enlarged, .clickable-diagram.enlarged {
+    transform: scale(1.5);
+    z-index: 10;
+    cursor: zoom-out;
+}
+
+/* Additional Container Styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section Title Styling */
+.section-title {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Dropdown Menu Styling */
+.dropdown_menu {
+    display: none; /* Start hidden by default */
+    position: absolute;
+    top: 100px; /* Position below the header */
+    right: 0; /* Align to the right */
+    background-color: #c9c307; /* Match navbar background */
+    padding: 5px;
+    width: 10%; /* Set a fixed width */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    opacity: 0;
+    visibility: hidden; /* Initially hidden */
+}
+
+/* Show dropdown when active (via JavaScript toggle) */
+.dropdown_menu.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
+.dropdown_menu ul {
+    list-style-type: none; /* Remove list bullets */
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown_menu ul li {
+    padding: 10px;
+}
+
+.dropdown_menu ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown_menu ul li:hover {
+    background-color: #f4b400; /* Hover effect */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    /* Hero section for small screens */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero .text {
+        margin-bottom: 20px;
+        text-align: center; /* Center text on smaller screens */
+    }
+
+    /* Grid layouts for small screens */
+    .features-grid, .materials-grid, .applications-list {
+        grid-template-columns: 1fr; /* One column on small screens */
+    }
+
+    /* Navbar adjustments for mobile */
+    .navbar .links {
+        display: none; /* Hide regular navbar links on small screens */
+    }
+
+    .toggle_btn {
+        display: block; /* Show toggle button on mobile */
+    }
+
+    /* Navbar Styling */
+    .navbar {
+        width: 100%;
+        height: 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: ;
+        justify-content: space-between;
+        position: relative; /* Important for dropdown positioning */
+    }
+
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle_btn {
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center; /* Center everything */
+    align-items: center;
+    padding: 50px 5%;
+    background: url('cover final.png') no-repeat center center/cover; /* Background image */
+    color: rgb(13, 85, 16);
+    border-bottom: 5px solid #2d7e00;
+    position: relative;
+    min-height: 500px;
+    text-align: center; /* Center text content */
+}
+
+/* Hero Content */
+.hero-content {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: center; /* Center-align text */
+    margin-bottom: 20px; /* Add spacing below the text */
+}
+
+.hero-text h1 {
+    font-size: 48px; /* Increase font size for better visibility */
+    font-weight: bold;
+    color: #2d7e00;
+}
+
+/* Navbar for Mobile */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 15px;
+}
+
+.navbar .logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    margin-right: 10px;
+    height: 30px;
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Toggle Button for Mobile */
+.toggle_btn {
+    display: none; /* Hide by default */
+    cursor: pointer;
+}
+
+/* Show toggle button on mobile */
+@media (max-width: 768px) {
+    .toggle_btn {
+        display: block; /* Show toggle button */
+        font-size: 30px;
+        color: white;
+    }
+
+    .navbar .links {
+        display: none; /* Hide navbar links by default */
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar.active .links {
+        display: flex; /* Show navbar links when the .navbar has the active class */
+    }
+
+    .navbar .links li {
+        display: inline-block;
+    }
+}
+
+/* Center the Title and Hide Menu for Mobile */
+@media (max-width: 768px) {
+    .hero {
+        text-align: center; /* Center all text */
+    }
+
+    .hero-text h2 {
+        font-size: 28px; /* Adjust the title font size */
+    }
+
+    /* Hide navbar links by default */
+    .navbar .links {
+        display: none;
+    }
+
+    .navbar.active .links {
+        display: flex; /* Show links when active */
+    }
+
+    .toggle_btn {
+        display: block;
+    }
+}
+
+/* General section styling */
+.video-section {
+    display: flex; /* Enable flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Make the section fill the full viewport height */
+    background-color: #f9f9f9; /* Optional background color */
+    padding: 20px; /* Add some padding around the video */
+    box-sizing: border-box; /* Include padding in height/width calculations */
+}
+
+/* General video container styling */
+.video-container {
+    width: 100%; /* Make video take full width of the container */
+    max-width: 800px; /* Set a max width for larger screens */
+    margin: 0 auto; /* Center the video container horizontally */
+}
+
+/* Ensuring video responsiveness */
+.video-container video {
+    width: 100%; /* Make video fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+/* For desktop screens, fixing video size */
+@media screen and (min-width: 1024px) {
+    .video-container {
+        width: 70%; /* Set the video container to 70% of the screen width on desktops */
+        max-width: 960px; /* Optional, limit the max width to a specific size */
+    }
+}

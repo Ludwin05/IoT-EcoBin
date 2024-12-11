@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoBin: The Smart IoT Waste Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#home">EcoBin</a>
+            </div>
+            <ul class="links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#materials">Materials</a></li>
+                <li><a href="#circuit">Circuit Diagram</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#applications">Applications</a></li>
+            </ul>
+            <!-- Toggle button for mobile -->
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i> <!-- Hamburger Icon -->
+            </div>
+        </nav>
+
+        
+    
+        <!-- Dropdown menu for mobile -->
+        <div class="dropdown_menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#materials">Materials</a></li>
+                <li><a href="#circuit">Circuit Diagram</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#applications">Applications</a></li>
+            </ul>
+        </div>
+    </header>
+    
+
+    <section class="hero">
+        <div class="text">
+            <h2>EcoBin - Smart Waste Management</h2>
+            <p>
+                EcoBin is a smart waste management system that uses an ESP32 microcontroller with ultrasonic sensors to monitor the trash level and control the trash can lid via a servo motor. It connects to WiFi and integrates with the Blynk app for real-time monitoring of trash levels and remote notifications when the bin is full. An OLED display shows the trash level and WiFi status. The system automatically opens or closes the lid based on object detection and sends alerts if the bin is near full capacity.
+            </p>
+        </div>
+        <div class="image">
+            <img src="final backgound.jpg" alt="EcoBin Image">
+        </div>
+    </section>
+    
+
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+                <!-- Feature 1: Trash Level Monitoring -->
+                <div class="feature card">
+                    <h3>Trash Level Monitoring</h3>
+                    <p>An ultrasonic sensor measures the distance to the trash, calculating the trash level. This data is displayed on an OLED screen and sent to the Blynk app for remote monitoring.</p>
+                    <img src="monitor.jpg" alt="Trash Level Monitoring" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- Feature 2: Lid Control -->
+                <div class="feature card">
+                    <h3>Lid Control</h3>
+                    <p>A second ultrasonic sensor detects nearby objects, automatically opening the trash can lid when within 30 cm and closing it when no one is near, promoting hands-free operation.</p>
+                    <img src="lid.jpg" alt="Lid Control" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- Feature 3: Wi-Fi Connectivity -->
+                <div class="feature card">
+                    <h3>Wi-Fi Connectivity</h3>
+                    <p>The ESP32 connects to Wi-Fi, enabling the trash level data to be sent to the Blynk app. Notifications are triggered when the trash level reaches 90 to 100%, helping users stay informed.</p>
+                    <img src="notif.jpg" alt="Wi-Fi Connectivity" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- Feature 4: Blynk Integration -->
+                <div class="feature card">
+                    <h3>Blynk Integration</h3>
+                    <p>In the Blynk app will monitor the trash level and the lid with notifications to the user when the trash can is full.</p>
+                    <img src="dashbbpard.png" alt="Blynk Integration" class="feature-icon clickable-feature">
+                </div>
+            </div> <!-- End of .features-grid -->
+        </div> <!-- End of .container -->
+    </section> <!-- End of #features section -->
+    
+    <section id="materials" class="materials-section">
+        <div class="container">
+            <h2 class="section-title">Materials</h2>
+            <div class="materials-grid">
+                <!-- ESP32 Microcontroller Card -->
+                <div class="material card">
+                    <h3>ESP32 Microcontroller</h3>
+                    <p>The heart of EcoBin, the ESP32 handles all the processing tasks, including sensor reading and Wi-Fi communication.</p>
+                    <img src="esp32.jpg" alt="ESP32 Microcontroller" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- Ultrasonic Sensor (HC-SR04) Card -->
+                <div class="material card">
+                    <h3>Ultrasonic Sensors (HC-SR04)</h3>
+                    <p>Used for measuring trash level and detecting proximity for automatic trash can lid operation.</p>
+                    <img src="ultrasonic.jpg" alt="Ultrasonic Sensors" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- Servo Motor (SG90) Card -->
+                <div class="material card">
+                    <h3>Servo Motor (SG90)</h3>
+                    <p>The servo motor controls the opening and closing of the trash can lid, triggered by proximity sensors.</p>
+                    <img src="servo.jpg" alt="Servo Motor" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- OLED Display (SSD1306) Card -->
+                <div class="material card">
+                    <h3>OLED Display (SSD1306)</h3>
+                    <p>Displays system status, including Wi-Fi connectivity and trash level for the EcoBin system.</p>
+                    <img src="OLED.jpg" alt="OLED Display" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- Wi-Fi Router Card -->
+                <div class="material card">
+                    <h3>Wi-Fi Router</h3>
+                    <p>Provides the internet access needed for the ESP32 to send real-time updates and communicate with the Blynk app.</p>
+                    <img src="wifi.jpg" alt="Wi-Fi Router" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- Blynk App Card -->
+                <div class="material card">
+                    <h3>Blynk App</h3>
+                    <p>The Blynk app allows users to monitor and control the EcoBin remotely, providing real-time updates and alerts.</p>
+                    <img src="blyk.jpg" alt="Blynk App" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- Jumper Wires Card -->
+                <div class="material card">
+                    <h3>Jumper Wires</h3>
+                    <p>Essential for connecting the ESP32 with sensors, motors, and other components in the EcoBin system.</p>
+                    <img src="jumper wire.jpg" alt="Jumper Wires" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- Plywood Card -->
+                <div class="material card">
+                    <h3>Plywood</h3>
+                    <p>Used to construct the housing and body of the EcoBin, providing durability and a lightweight structure.</p>
+                    <img src="fywood.jpg" alt="Plywood" class="feature-icon clickable-feature">
+                </div>
+    
+                <!-- Trash Bin Card -->
+                <div class="material card">
+                    <h3>Trash Bin</h3>
+                    <p>The main component of the EcoBin, designed to hold waste while integrating with the smart features.</p>
+                    <img src="thrash can.jpg" alt="Trash Bin" class="feature-icon clickable-feature">
+                </div>
+    
+                    <!-- Trash Bin Card -->
+                    <div class="Power">
+                        <h3>Trash Bin</h3>
+                        <p>is essential to provide the necessary energy for the ESP32 microcontroller, sensors, and display. L</p>
+                        <img src="charger.jpg" alt="Trash Bin" class="feature-icon clickable-feature">
+                    </div>
+        
+                <!-- 2x1 Lumber Card -->
+                <div class="material card">
+                    <h3>2x1 Lumber</h3>
+                    <p>Used in the construction of EcoBin's frame and structure, providing support and strength to the system.</p>
+                    <img src="wood.jpg" alt="2x1 Lumber" class="feature-icon clickable-feature">
+                </div>
+            </div> <!-- End of .materials-grid -->
+        </div> <!-- End of .container -->
+    </section> <!-- End of #materials section -->
+    
+
+    <section id="circuit" class="circuit-section">
+        <div class="container">
+            <h2 class="section-title">Circuit Diagram</h2>
+            <div class="circuit-item">
+                <div class="circuit-image">
+                    <img src="circuit (1).jpg" alt="Circuit Diagram 1" class="clickable-diagram">
+                </div>
+                <div class="circuit-text">
+                    <p>EcoBin circuit diagram shows the key components used for IoT-based waste management. It includes sensors for trash level monitoring and a Wi-Fi module for connectivity.</p>
+                </div>
+            </div>
+            <div class="circuit-item reverse">
+                <div class="circuit-text">
+                    <p>This diagram shows how the waste level sensor communicates with the central control unit and sends alerts to the Blynk app when the bin is full.</p>
+                </div>
+                <div class="circuit-image">
+                    <img src="circuit (2).jpg" alt="Circuit Diagram 2" class="clickable-diagram">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="how-it-works-content">
+                <img src="circuit 4.jpg" alt="Smart Trash Can" class="clickable-image">
+                <div class="text slide-in">
+                    <p>EcoBin uses IoT technology to monitor trash levels through sensors, sending data to the Blynk Cloud via Wi-Fi. Users can view bin status and receive alerts when the bin is full. This system ensures efficient waste management by providing real-time updates for timely maintenance and optimized usage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="applications" class="applications">
+        <div class="container">
+            <h2 class="section-title">Applications</h2>
+            <div class="applications-list">
+                <!-- Home Application -->
+                <div class="application-item">
+                    <h3>Home</h3>
+                    <p>The system can be used in households to automatically open the trash can lid when a person is near and monitor the trash level. Notifications are sent when the trash is full, making trash management more convenient and reducing manual effort.</p>
+                </div>
+                
+                <!-- Office Application -->
+                <div class="application-item">
+                    <h3>Office</h3>
+                    <p>In offices, the system helps maintain cleanliness by notifying staff when trash cans are full and automates the lid opening to avoid physical contact with the bin, promoting hygiene and reducing the need for constant monitoring.</p>
+                </div>
+                
+                <!-- School Application -->
+                <div class="application-item">
+                    <h3>School</h3>
+                    <p>In schools, this system helps track trash levels in classrooms or cafeterias. It automatically opens the trash can lid for students and sends alerts when bins are full, reducing the need for frequent manual checks by staff.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="EcoBin-Video" class="EcoBin-Video">
+        <div class="container">
+            <h2 class="section-title">Watch</h2>
+            <div class="EcoBin-Video-content">
+                <!-- Embedded YouTube Video -->
+                <div class="video-wrapper">
+                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/3sTjvekkJlk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="how-it-works-description">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+ 
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EcoBin. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
